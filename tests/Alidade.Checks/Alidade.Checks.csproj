@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <Nullable>enable</Nullable>
+    <RhinoResources Condition="'$(RhinoResources)' == ''">/Applications/Rhino 8.app/Contents/Frameworks/RhCore.framework/Versions/A/Resources</RhinoResources>
+    <GrasshopperResources Condition="'$(GrasshopperResources)' == ''">$(RhinoResources)/ManagedPlugIns/GrasshopperPlugin.rhp</GrasshopperResources>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Alidade/Alidade.csproj" Private="false" />
+    <Reference Include="RhinoCommon" HintPath="$(RhinoResources)/RhinoCommon.dll" />
+    <Reference Include="Grasshopper" HintPath="$(GrasshopperResources)/Grasshopper.dll" />
+    <Reference Include="GH_IO" HintPath="$(GrasshopperResources)/GH_IO.dll" />
+  </ItemGroup>
+</Project>
